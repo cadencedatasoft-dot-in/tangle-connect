@@ -1,4 +1,4 @@
-import { Connect, WatcherFunctionType } from "./Connect";
+import { Connect } from "./Connect";
 
 /**
  * A sample function to retrieve balance.
@@ -23,30 +23,6 @@ export function getBalance(addr: string) {
   const inst = Connect.getInstance();
   if (inst) {
     return inst.getBalanceInfo(addr)
-  }
-  return null;
-}
-
-export function watchAddress(addr: string) {
-  const inst = Connect.getInstance();
-  if (inst) {
-    return inst.watchAddress(addr);
-  }
-  return null;
-}
-
-export async function startWatching(subscriber: WatcherFunctionType) {
-  const inst = Connect.getInstance();
-  if (inst) {
-    return await inst.startWatching(subscriber);
-  }
-  return null;
-}
-
-export function stopWatching() {
-  const inst = Connect.getInstance();
-  if (inst) {
-    return inst.stopWatching();
   }
   return null;
 }
