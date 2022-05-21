@@ -1,32 +1,28 @@
+import { Connect } from "./Connect";
+
 /**
- * A sample async function (to demo Typescript's es7 async/await down-leveling).
+ * A sample function to retrieve balance.
  *
  * ### Example (es imports)
  * ```js
- * import { asyncABC } from 'typescript-starter'
- * console.log(await asyncABC())
- * // => ['a','b','c']
+ * import { getBalance } from 'tangle-connect'
+ * console.log( getBalance(<iota address>))
+ * // => 100000
  * ```
  *
  * ### Example (commonjs)
  * ```js
- * var double = require('typescript-starter').asyncABC;
- * asyncABC().then(console.log);
- * // => ['a','b','c']
+ * var tc = require('tangle-connect');
+ * tc.getBalance.then(console.log);
+ * // => 100000
  * ```
  *
- * @returns a Promise which should contain `['a','b','c']`
+ * @returns Should return number
  */
-export const asyncABC = async () => {
-  const somethingSlow = (index: 0 | 1 | 2) => {
-    const storage = 'abc'.charAt(index);
-    return new Promise<string>((resolve) =>
-      // later...
-      resolve(storage)
-    );
-  };
-  const a = await somethingSlow(0);
-  const b = await somethingSlow(1);
-  const c = await somethingSlow(2);
-  return [a, b, c];
-};
+export function getBalance(addr: string) {
+  const inst = Connect.getInstance();
+  if (inst) {
+    return inst.getBalanceInfo(addr)
+  }
+  return null;
+}

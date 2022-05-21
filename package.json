@@ -46,6 +46,9 @@
   },
   "devDependencies": {
     "@ava/typescript": "^1.1.1",
+    "@iota/client-wasm": "^0.4.0",
+    "@iota/iota.js": "^1.8.6",
+    "@iota/util.js": "^1.8.6",
     "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
